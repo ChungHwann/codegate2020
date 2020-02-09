@@ -252,7 +252,7 @@ class Interval(object):
 ### a_interp, interp
 + 굳이 a_interp, interp 두 번에 걸쳐서 명령어를 분석, 수행하는 이유가 의문이었다. 
 + 앞서 언급했던 대로 a_interp는 interp를 위한 준비과정 같은 느낌이었다. 
-+ 따라서 ast.py 에서 정의된 명령들 마다 a_interp, interp 과정에서 동작이 다른 명령들이 존재한다.
++ ast.py 에서 정의된 명령들 마다 a_interp, interp 과정에서 동작이 다른 명령들이 존재한다.
 + 이를 면밀히 분석하고자 명령마다 a_interp, interp 에서 수행되는 과정을 출력하도록 ast.py 를 수정 후 실행해보았다.
 ```python
 class Assign(Comm):
@@ -297,6 +297,7 @@ class IfElse(Comm):
         return env
 ...
 ```
+*예시*
 ```
 hanch@ubuntu:~/Documents/cykor/codegate2020/verifier$ python3 prob.py
 > a=1~10;a>5?{!a}:{!1} 
@@ -424,15 +425,17 @@ a) While) after) tenv: {'a': [2, inf], 'one': [1, 1]}
 a) While) after) fenv: None
 Error: loop analysis error
 ```
->*env_widen 때문에, 실제 a의 범위는 1~10이지만, a_interp의 결과 a의 범위는 1~inf이다.*
+>*env_widen 때문에, 실제 a의 범위는 1 ~ 10이지만, a_interp의 결과 a의 범위는 1 ~ inf이다.*
 
 ### widen
+>다음과 같은 코드를 prob.py에 명령으로 넣어준 경우를 생각해보자. 
 ```python
 a = 1
 while a<10:
     a += 1
 ```
-다음과 같은 코드를 prob.py에 명령으로 넣어준 경우를 생각해보자. While에서 a_interp시 3번의 반복 후 env_widen을 하면서 이때 a의 범위는 [1,inf]가 된다. 그런데 return fenv때문에 While이 종료되면 a의 범위는 [10,10]이 된다. 하지만 while안에 a가 아닌 다른 변수가 있는 경우를 생각해보자.
+While에서 a_interp시 3번의 반복 후 env_widen을 하면서 이때 a의 범위는 [1,inf]가 된다. 그런데 return fenv때문에 While이 종료되면 a의 범위는 [10,10]이 된다.
+>이때 while안에 a가 아닌 다른 변수가 있는 경우를 생각해보자.
 ```python
 a = 1
 b = 1
