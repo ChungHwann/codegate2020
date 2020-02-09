@@ -535,4 +535,4 @@ While) env: {'a': 50, 'b': -43, 'one': 1, 'two': 2}
 value: -43
 Error: [Errno 2] No such file or directory: './flag'
 ```
->로컬에서 실행 결과, 의도한대로 a_interp 단계에서 b의 최소값은 8이고, interp 단계에서 음수 -43이 출력되었다. 그리고 ./flag를 읽어오려는 모습을 확인할 수 있다.
+>로컬에서 실행 결과, 의도한대로 a_interp 단계에서 b의 최소값은 8이고, interp 단계에서 b는 음수 -43이다. 그리고 ./flag를 읽어오려는 모습을 확인할 수 있다.
