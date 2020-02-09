@@ -28,6 +28,7 @@ if __name__ == '__main__':
 ```
 2. parser.py
     + 사용자 입력(명령)을 분석, 파싱
+    + 명령어 형식을 확인할 수 
 ```python
 ...
 def p_goal(p):
