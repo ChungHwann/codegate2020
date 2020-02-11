@@ -28,7 +28,7 @@ if __name__ == '__main__':
 ```
 2. parser.py
     + 사용자 입력(명령)을 분석, 파싱
-    + 명령어 형식을 확인할 수 
+    + 명령어 형식을 확인할 수 있다.
 ```python
 ...
 def p_goal(p):
@@ -250,7 +250,6 @@ class Interval(object):
 ```
 + 따라서 우리가 주목할 부분은 이곳. self.infimum이 other.infimum보다 작거나 같으면 self.infimum을 -inf로 확장함. supremum도 마찬가지. 이 widen 함수가 어떻게 쓰이는 지 확인해볼 필요있어보인다.
 ### a_interp, interp
-+ 굳이 a_interp, interp 두 번에 걸쳐서 명령어를 분석, 수행하는 이유가 의문이었다. 
 + 앞서 언급했던 대로 a_interp는 interp를 위한 준비과정 같은 느낌이었다. 
 + ast.py 에서 정의된 명령들 마다 a_interp, interp 과정에서 동작이 다른 명령들이 존재한다.
 + 이를 면밀히 분석하고자 명령마다 a_interp, interp 에서 수행되는 과정을 출력하도록 ast.py 를 수정 후 실행해보았다.
