@@ -4,7 +4,7 @@
 문제 코드는 실행되는 prob.py와 모듈화된 파이썬 코드 4개로 이루어져있다. 결론적으로 prob.py는 사용자 입력을 받아 명령을 수행하는 인터프리터와 같은 동작을 한다. 이는 ply라는 파이썬 모듈을 통해 구현된다.
 1. prob.py
     + 입력(명령)을 받은 후 syntax 검사 -> **a_interp -> interp**
-    + a_interp는 interp 전에 수행되는 준비과정같은 느낌이었음. 예를 들어 어떤 변수가 가질 수 있는 값의 범위를 a_interp에서 정하고, 그 변수의 실제 값은 interp에서 정해지는 식. 
+    + a_interp는 interp 전에 수행되는 준비과정같은 느낌이었다. 예를 들어 어떤 변수가 가질 수 있는 값의 범위를 a_interp에서 정하고, 그 변수의 실제 값은 interp에서 정해지는 식. 
 ```python
 if __name__ == '__main__':
     code = input('> ')
